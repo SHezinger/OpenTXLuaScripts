@@ -1,27 +1,17 @@
-local timenow
-local timenowSeconds
-local hours
-local minutes
-local seconds
-local secondsNext
-local secondsGap
-
 local currentAltitudeRange
 
-local altitude
 
 local function init_func()
-  secondsNext = 0
-  secondsGap = 2
-  currentAltitudeRange = 0
+
+    currentAltitudeRange = 0
 end
+
+
 
 local function run_func()
 
     local stepSize = 1
-    local newAltitudeRange = 0
-
-    altitude = getValue('Tmp1')
+    local altitude = getValue('Tmp1')
     
     if altitude < 11 then
         stepSize = 1
@@ -35,7 +25,7 @@ local function run_func()
         
 
   
-    newAltitudeRange = math.floor(altitude / stepSize ) * stepSize
+    local newAltitudeRange = math.floor(altitude / stepSize ) * stepSize
     
     if newAltitudeRange >= currentAltitudeRange + stepSize  then
     
